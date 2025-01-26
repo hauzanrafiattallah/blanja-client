@@ -1,13 +1,19 @@
+import getBanner from "@/actions/GetBanner";
+import Banner from "@/components/Banner";
+import Container from "@/components/ui/Container";
 import React from "react";
 
-const HomePage = () => {
+export const revalidate = 0;
+
+const HomePage = async () => {
+  const banner = await getBanner("023a4d0f-87d0-4ea8-afc7-22fbfcb27f6f");
+
   return (
-    <div>
-      <div>
-        <h1>Home Page</h1>
-        <p>This is the home page.</p>
+    <Container>
+      <div className="space-y-10 pb-10">
+        <Banner data={banner} />
       </div>
-    </div>
+    </Container>
   );
 };
 
